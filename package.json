@@ -17,6 +17,8 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.1",
     "node-mocks-http": "^1.6.1",
     "supertest": "^3.0.0",
     "webpack": "^2.3.2",
