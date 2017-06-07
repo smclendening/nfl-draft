@@ -13,12 +13,18 @@ const currentTeam = (state = {team: null}, action) => {
   }
 }
 
-const allPlayers = (state = {players: null}, action) => {
+const allPlayers = (state = {players: null, isFetching: false}, action) => {
   switch (action.type) {
-    case RECEIVED_PLAYERS:
+    case REQUEST_PLAYERS:
       return {
         ...state,
-        players: action.players
+        isFetching: true
+      }
+    case RECEIVE_PLAYERS:
+      return {
+        ...state,
+        players: action.players,
+        isFetching: false
       }
     default:
       return state;
@@ -30,7 +36,7 @@ const displayedPlayers = (state = {
   position: 'QB'
 }, action) => {
   switch (action.type) {
-    case RECEIVED_PLAYERS:
+    case RECEIVE_PLAYERS:
       return {
         ...state,
         players: action.players // TODO: filter by current position here 
