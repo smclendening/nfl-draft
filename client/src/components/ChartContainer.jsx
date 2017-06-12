@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPlayers } from '../actions.js';
 
-export default class ChartContainer extends Component {
+export class ChartContainer extends Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-
+    const { getPlayers } = this.props;
+    getPlayers();
   }
 
   render() {
@@ -22,7 +23,7 @@ export default class ChartContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    players
+    ...state
   }
 }
 
@@ -32,4 +33,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps)(ChartContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ChartContainer)

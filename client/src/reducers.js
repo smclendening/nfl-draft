@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 // import actions here
+import { SELECT_TEAM, REQUEST_PLAYERS, RECEIVE_PLAYERS } from './actions.js';
 
 const currentTeam = (state = {team: null}, action) => {
   switch (action.type) {

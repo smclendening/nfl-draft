@@ -1,13 +1,15 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
-import Nav from './components/Nav.jsx';
-import ChartContainer from './components/ChartContainer.jsx';
+import configureStore from './configureStore';
+import App from './components/App.jsx';
+
+const store = configureStore();
 
 const Root = () => (
-  <div>
-    <Nav/>
-    <ChartContainer />
-  </div>
+    <Provider store={store}>
+      <App />
+    </Provider>
 )
 
 ReactDOM.render(<Root />, document.getElementById('app'));
