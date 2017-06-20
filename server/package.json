@@ -1,5 +1,0 @@
-{
-  "dependencies": {
-    "pg-promise": "^5.9.3"
-  }
-}
