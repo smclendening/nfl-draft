@@ -4,13 +4,14 @@ const request = require('request');
 const cheerio = require('cheerio');
 const app = express();
 
+const db = require('../db/config.js');
 const utils = require('./utils.js');
 
 app.use(express.static(path.resolve(__dirname + '/../client/public')))
 
 app.get('/players', (req, res) => {
-  utils.findPlayers();
-
+  //utils.findPlayers();
+  db();
   res.end(JSON.stringify('hello'));
 })
 

@@ -5,7 +5,8 @@
     "start": "nodemon server",
     "test": "NODE_ENV=test grunt test",
     "build": "webpack --progress --watch",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "resetdb": "psql -c 'DROP DATABASE IF EXISTS nfldraft;' && psql -c 'CREATE DATABASE nfldraft;'"
   },
   "dependencies": {
     "babel-core": "^6.24.1",
