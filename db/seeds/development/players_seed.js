@@ -1,13 +1,84 @@
+const request = require('request');
+const cheerio = require('cheerio');
+const rp = require('request-promise');
 
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
+
+const findPlayers = () => {
+  const url = 'http://www.pro-football-reference.com/draft/2016-combine.htm';
+  const array = [];
+
+  const options = {
+    uri: url,
+    transform: function (body) {
+        return cheerio.load(body);
+    }
+  };
+
+  return rp(options)
+    .then(($) => {
+      $('tbody').filter(function() {
+        const players = $(this).children();
+
+        $(players).each(function(player) {
+
+          if ($(this).children().first().text() !== 'Player') {
+            const heightString = $(this).find('[data-stat="height"]').text();
+            
+            const playerObj = {
+              name: $(this).children().first().text(),
+              position: $(this).find('[data-stat="pos"]').text(),
+              college: $(this).find('[data-stat="school_name"]').find('a').text(),
+              height: Number(heightString.split('-')[0]) * 12 + Number(heightString.split('-')[1]),
+              weight: Number($(this).find('[data-stat="weight"]').text()),
+              forty_yd: Number($(this).find('[data-stat="forty_yd"]').text()), 
+              vertical: Number($(this).find('[data-stat="vertical"]').text()),   
+              bench_reps: Number($(this).find('[data-stat="bench_reps"]').text()),        
+              cone: Number($(this).find('[data-stat="cone"]').text()),
+              shuttle: Number($(this).find('[data-stat="shuttle"]').text()),
+              team: $(this).find('[data-stat="draft_info"]').text().split('/')[0],
+              round: $(this).find('[data-stat="draft_info"]').text().split('/')[1]
+            }
+
+            if (playerObj.team === '') {
+              playerObj.team = 'Undrafted';
+            }
+
+            if (playerObj.round) {
+              playerObj.round = Number(playerObj.round[1]);
+            } else {
+              playerObj.round = 8;
+            }
+
+            array.push(playerObj);
+          } else {
+            console.log('CURIOUS');
+          }
+        })
+      })
+    })
+    .then(() => {
+      return array;
     });
-};
+}
+
+const createPlayerRecord = (knex, player) => {
+  return knex('players').insert(player);
+}
+
+exports.seed = (knex, Promise) => {
+  return knex('players').del()
+    .then(() => {
+      return findPlayers()
+      .then(players => {
+        let playersToInsert = [];
+
+        for (let i = 0; i < players.length; i++) {
+          playersToInsert.push(createPlayerRecord(knex, players[i]));
+        }
+
+        return Promise.all(playersToInsert);
+      })
+    })
+}
+
+
