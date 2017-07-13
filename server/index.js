@@ -9,11 +9,12 @@ const utils = require('./utils.js');
 
 app.use(express.static(path.resolve(__dirname + '/../client/public')));
 
-const players = [];
+//const players = [];
 
-const test = utils.findPlayers([]);
-
-console.log('players please', test);
+utils.findPlayers()
+  .then(array => {
+    console.log('players found: ', array);
+  })
 
 app.get('/players', (req, res) => {
   //db();
