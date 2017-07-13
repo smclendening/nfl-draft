@@ -7,11 +7,16 @@ const app = express();
 const db = require('../db/config.js');
 const utils = require('./utils.js');
 
-app.use(express.static(path.resolve(__dirname + '/../client/public')))
+app.use(express.static(path.resolve(__dirname + '/../client/public')));
+
+const players = [];
+
+const test = utils.findPlayers([]);
+
+console.log('players please', test);
 
 app.get('/players', (req, res) => {
-  //utils.findPlayers();
-  db();
+  //db();
   res.end(JSON.stringify('hello'));
 })
 
