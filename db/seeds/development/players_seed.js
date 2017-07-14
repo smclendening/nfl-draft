@@ -47,6 +47,7 @@ const findPlayers = () => {
               if (playerObj.team === '') {
                 playerObj.team = 'Undrafted';
               } else {
+                // remove blank space at end of player string 
                 let teamString = playerObj.team;
                 teamString = teamString.split('');
                 teamString.pop();
@@ -57,6 +58,7 @@ const findPlayers = () => {
               if (playerObj.round) {
                 playerObj.round = Number(playerObj.round[1]);
               } else {
+                // if player was undrafted, set round to 8 
                 playerObj.round = 8;
               }
               array.push(playerObj);
