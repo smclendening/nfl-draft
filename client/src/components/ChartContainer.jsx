@@ -13,9 +13,12 @@ export class ChartContainer extends Component {
   }
 
   render() {
+    const { players } = this.props;
+
     return (
       <div>
         Chart Container
+        {players && players.map(player => <div>{player.name}</div>)} 
       </div>
     )
   }
@@ -23,7 +26,8 @@ export class ChartContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentTeam: state.currentTeam
+    currentTeam: state.currentTeam,
+    players: state.displayedPlayers.players
   }
 }
 

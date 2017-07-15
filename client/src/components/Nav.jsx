@@ -1,9 +1,8 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const Nav = () => (
-  <div>
-    Navigation Bar
-  </div>
+  <RaisedButton label="Default" />
 )
 
 export default Nav;

@@ -27,6 +27,6 @@ export const fetchPlayers = (team, position) => {
   return dispatch => {
     dispatch(requestPlayers(team, position));
     return axios.get('players', {params: config})
-      .then(players => dispatch(receivePlayers(players)))
+      .then(players => dispatch(receivePlayers(players.data)))
   }
 }
