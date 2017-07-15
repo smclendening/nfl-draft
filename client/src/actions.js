@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import axios from 'axios';
 
 export const REQUEST_PLAYERS = 'REQUEST_PLAYERS';
 export const RECEIVE_PLAYERS = 'RECEIVE_PLAYERS';
@@ -18,11 +18,15 @@ const receivePlayers = (players) => (
   }
 )
 
-export const fetchPlayers = (team) => {
+export const fetchPlayers = (team, position) => {
+  const config = {
+    team, 
+    position
+  }
+
   return dispatch => {
     dispatch(requestPlayers(team, position));
-    return fetch('/players')
-      .then(response => response.json())
-      .then(json => dispatch(receivePlayers(json)))
+    return axios.get('players', {params: config})
+      .then(players => dispatch(receivePlayers(players)))
   }
 }

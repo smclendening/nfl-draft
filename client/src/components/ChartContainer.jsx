@@ -9,8 +9,7 @@ export class ChartContainer extends Component {
 
   componentDidMount() {
     const { getPlayers, currentTeam } = this.props;
-    console.log('current team', currentTeam);
-    getPlayers(currentTeam.team);
+    getPlayers(currentTeam.team, currentTeam.position);
   }
 
   render() {
@@ -30,7 +29,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPlayers: () => dispatch(fetchPlayers())
+    getPlayers: (team, position) => dispatch(fetchPlayers(team, position))
   }
 }
 
