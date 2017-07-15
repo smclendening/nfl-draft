@@ -1,8 +1,16 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
+
+const navStyle = {
+  marginBottom: '0',
+  borderRadius: '0',
+  height: '52px',
+  background: '#002347'
+};
 
 const Nav = () => (
-  <RaisedButton label="Default" />
+  <div id="navbar" className="ui fixed menu" style={navStyle}>
+    NFL Draft Data
+  </div>
 )
 
 export default Nav;
