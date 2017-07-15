@@ -10,14 +10,17 @@ const db = require('knex')({
         if (err) {
           done(err, conn);
         } else {
-          conn.query('SELECT set_limit(0.01);', err => {
+         // conn.query('SELECT set_limit(0.01);', err => {
+         // set_limit now deprecated
             done(err, conn);
-          })
+          //})
         }
       })
     }
   }
 })
+
+module.exports = db;
 
 // const db = pgp('postgres://localhost:5432/nfldraft');
 
