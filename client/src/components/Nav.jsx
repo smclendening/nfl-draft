@@ -7,9 +7,17 @@ const navStyle = {
   background: '#002347'
 };
 
+const spanStyle = {
+  color: 'white',
+  textAlign: 'center',
+  verticalAlign: 'middle'
+}
+
 const Nav = () => (
   <div id="navbar" className="ui fixed menu" style={navStyle}>
-    NFL Draft Data
+    <p style={spanStyle}>
+      NFL Draft Data
+    </p>
   </div>
 )
 

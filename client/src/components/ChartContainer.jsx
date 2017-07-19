@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPlayers } from '../actions.js';
 
+const gridStyle = {
+  marginTop: '64px'
+}
+
 export class ChartContainer extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +20,7 @@ export class ChartContainer extends Component {
     const { players } = this.props;
 
     return (
-      <div>
+      <div style={gridStyle}>
         Chart Container
         {players && players.map(player => <div>{player.name}</div>)} 
       </div>
