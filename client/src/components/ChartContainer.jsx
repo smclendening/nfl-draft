@@ -22,7 +22,7 @@ export class ChartContainer extends Component {
     return (
       <div style={gridStyle}>
         Chart Container
-        {players && players.map(player => <div>{player.name}</div>)} 
+        {players && players.map(player => <div key={player.id}>{player.name}</div>)} 
       </div>
     )
   }

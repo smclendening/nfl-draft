@@ -34,7 +34,7 @@ const allPlayers = (state = {players: null, isFetching: false}, action) => {
 
 const displayedPlayers = (state = {
   players: null,
-  position: 'QB'
+  position: 'WR'
 }, action) => {
   switch (action.type) {
     case RECEIVE_PLAYERS:
