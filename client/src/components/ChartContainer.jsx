@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPlayers } from '../actions.js';
-
-const gridStyle = {
-  marginTop: '64px'
-}
+import BarChart from './BarChart.jsx';
 
 export class ChartContainer extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
 
   componentDidMount() {
@@ -20,9 +17,8 @@ export class ChartContainer extends Component {
     const { players } = this.props;
 
     return (
-      <div style={gridStyle}>
-        Chart Container
-        {players && players.map(player => <div key={player.id}>{player.name}</div>)} 
+      <div>
+        {players ? <BarChart players={players} /> : <p>Loading</p>}
       </div>
     )
   }
