@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { scaleBand, scaleLinear } from 'd3-scale';
+import Axes from './Axes.jsx';
 
 const devMargins = { top: 50, right: 20, bottom: 100, left: 60 };
 const devDimensions = { width: 800, height: 500 };
@@ -24,6 +25,13 @@ export default class ChartContainer extends Component {
 
     return (
       // return bar chart here
+      <svg width={devDimensions.width} height={devDimensions.height}>
+        <Axes
+          scales={{ xScale, yScale }}
+          margins={devMargins}
+          svgDimensions={devDimensions}
+        />
+      </svg>
     )   
   }
 }
