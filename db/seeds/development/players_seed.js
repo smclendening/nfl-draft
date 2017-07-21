@@ -16,6 +16,8 @@ const findPlayers = () => {
           return cheerio.load(body);
       }
     };
+
+    const year = url.split('draft/')[1].slice(0, 4);
     
     return rp(options)
       .then(($) => {
@@ -39,7 +41,8 @@ const findPlayers = () => {
                 cone: Number($(this).find('[data-stat="cone"]').text()),
                 shuttle: Number($(this).find('[data-stat="shuttle"]').text()),
                 team: $(this).find('[data-stat="draft_info"]').text().split('/')[0],
-                round: $(this).find('[data-stat="draft_info"]').text().split('/')[1]
+                round: $(this).find('[data-stat="draft_info"]').text().split('/')[1],
+                year: year
               }
 
 

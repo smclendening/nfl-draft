@@ -16,7 +16,7 @@ export default class Bars extends Component {
       players.map(player => 
         <rect  
           key={player.id}
-          x={xScale(player.name)}
+          x={xScale(`${player.name} (${player.year})`)}
           y={yScale(player.forty_yd)}
           height={height - margins.bottom - scales.yScale(player.forty_yd)}
           width={xScale.bandwidth()}
