@@ -14,13 +14,16 @@ export default class ChartContainer extends Component {
   render() {
     const { players } = this.props;
 
+    const minValue = Math.min(...players.map(player => player.forty_yd));
+    const maxValue = Math.max(...players.map(player => player.forty_yd));
+
     const xScale = scaleBand()
       .padding(0.5)
-      .domain(players.map(player => player.name))
+      .domain(players.map(player => `${player.name}`))
       .range([devMargins.left, devDimensions.width - devMargins.right])
 
     const yScale = scaleLinear()
-      .domain(players.map(player => Number(player.forty_yd)))
+      .domain([minValue, maxValue])
       .range([devDimensions.height - devMargins.bottom, devMargins.top]) 
 
     return (
