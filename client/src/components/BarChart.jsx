@@ -25,7 +25,7 @@ export default class ChartContainer extends Component {
 
     const xScale = scaleBand()
       .padding(0.5)
-      .domain(players.map(player => `${player.name} (${player.year})`))
+      .domain(players.map(player => `${player.name} (${player.year} - Rd ${player.round})`))
       .range([devMargins.left, devDimensions.width - devMargins.right])
 
     const yScale = scaleLinear()
