@@ -16,11 +16,18 @@ export class ChartContainer extends Component {
   render() {
     const { players } = this.props;
 
-    return (
-      <div>
-        {players ? <BarChart players={players} /> : <p>Loading</p>}
+    const barChart = (
+      <div className="ui container segment">
+        <BarChart players={players} />
       </div>
     )
+
+    const loadingChart = (
+      <div className="ui segment loading">
+      </div>
+    )
+
+    return players ? barChart : loadingChart;
   }
 }
 
