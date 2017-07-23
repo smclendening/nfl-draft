@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchPlayers } from '../actions.js';
 import BarChart from './BarChart.jsx';
 
-export class ChartContainer extends Component {
+export class ChartHome extends Component {
   constructor() {
     super();
   }

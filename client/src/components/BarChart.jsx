@@ -15,7 +15,7 @@ const maxValues = {
   'forty_yd': 4.2
 }
 
-export default class ChartContainer extends Component {
+export default class BarChart extends Component {
   constructor(props) {
     super(props);
   }
