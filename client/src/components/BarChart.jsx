@@ -15,7 +15,7 @@ const maxValues = {
   'forty_yd': 4.2
 }
 
-export default class BarChart extends Component {
+export class BarChart extends Component {
   constructor(props) {
     super(props);
   }
@@ -34,21 +34,27 @@ export default class BarChart extends Component {
 
     return (
       // return bar chart here
-      <svg width={devDimensions.width} height={devDimensions.height}>
-        <Axes
-          scales={{ xScale, yScale }}
-          margins={devMargins}
-          svgDimensions={devDimensions}
-        />
+      <Axes
+        scales={{ xScale, yScale }}
+        margins={devMargins}
+        svgDimensions={devDimensions}
+      />
 
-        <Bars
-          scales={{ xScale, yScale }}
-          margins={devMargins}
-          players={players}
-          maxValue={maxValues.forty_yd}
-          svgDimensions={devDimensions}
-        />
-      </svg>
+      <Bars
+        scales={{ xScale, yScale }}
+        margins={devMargins}
+        players={players}
+        maxValue={maxValues.forty_yd}
+        svgDimensions={devDimensions}
+      />
     )   
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    players: state.displayedPlayers.players
+  }
+}
+
+export default connect(mapStateToProps)(BarChart);

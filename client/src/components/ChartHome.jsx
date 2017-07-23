@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPlayers } from '../actions.js';
-import BarChart from './BarChart.jsx';
+import BarChartContainer from './BarChartContainer.jsx';
 
 export class ChartHome extends Component {
   constructor() {
@@ -11,14 +11,17 @@ export class ChartHome extends Component {
   componentDidMount() {
     const { getPlayers, currentTeam } = this.props;
     getPlayers(currentTeam.team, currentTeam.position);
+
+    // get size here
+    // getContainerSize();
   }
 
   render() {
     const { players } = this.props;
 
-    const barChart = (
+    const barChartContainer = (
       <div className="ui container segment">
-        <BarChart players={players} />
+        <BarChartContainer players={players} />
       </div>
     )
 
@@ -27,7 +30,7 @@ export class ChartHome extends Component {
       </div>
     )
 
-    return players ? barChart : loadingChart;
+    return players ? barChartContainer : loadingChart;
   }
 }
 
@@ -44,4 +47,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChartContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ChartHome)
