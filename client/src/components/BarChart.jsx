@@ -35,19 +35,19 @@ export class BarChart extends Component {
     return (
       // return bar chart here
       <g>
-      <Axes
-        scales={{ xScale, yScale }}
-        margins={margin}
-        svgDimensions={{ width, height}}
-      />
+        <Axes
+          scales={{ xScale, yScale }}
+          margins={margin}
+          svgDimensions={{ width, height}}
+        />
 
-      <Bars
-        scales={{ xScale, yScale }}
-        margins={margin}
-        players={players}
-        maxValue={maxValues.forty_yd}
-        svgDimensions={{ width, height }}
-      />
+        <Bars
+          scales={{ xScale, yScale }}
+          margins={margin}
+          players={players}
+          maxValue={maxValues.forty_yd}
+          svgDimensions={{ width, height }}
+        />
       </g>
     )   
   }

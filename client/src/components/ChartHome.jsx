@@ -31,7 +31,7 @@ export class ChartHome extends Component {
         <div className="ui text loader">Loading Player Data Chart</div>
       </div>
     )
-    console.log('margin', margin);
+    
     return (
       <div className="ui container segment" ref="container">
         {players && margin ? barChartContainer : loadingChart}
