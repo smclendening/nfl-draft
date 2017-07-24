@@ -4,7 +4,7 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import Axes from './Axes.jsx';
 import Bars from './Bars.jsx';
 
-const devMargins = { top: 50, right: 20, bottom: 100, left: 60 };
+//const margin = { top: 50, right: 20, bottom: 100, left: 60 };
 const devDimensions = { width: 800, height: 500 };
 
 const minValues = {
@@ -21,39 +21,44 @@ export class BarChart extends Component {
   }
 
   render() {
-    const { players } = this.props;
+    const { players, margin, width, height } = this.props;
 
     const xScale = scaleBand()
       .padding(0.5)
       .domain(players.map(player => `${player.name} (${player.year} - Rd ${player.round})`))
-      .range([devMargins.left, devDimensions.width - devMargins.right])
+      .range([margin.left, width - margin.right])
 
     const yScale = scaleLinear()
       .domain([minValues.forty_yd, maxValues.forty_yd])
-      .range([devDimensions.height - devMargins.bottom, devMargins.top]) 
+      .range([height - margin.bottom, margin.top]) 
 
     return (
       // return bar chart here
+      <g>
       <Axes
         scales={{ xScale, yScale }}
-        margins={devMargins}
-        svgDimensions={devDimensions}
+        margins={margin}
+        svgDimensions={{ width, height}}
       />
 
       <Bars
         scales={{ xScale, yScale }}
-        margins={devMargins}
+        margins={margin}
         players={players}
         maxValue={maxValues.forty_yd}
-        svgDimensions={devDimensions}
+        svgDimensions={{ width, height }}
       />
+      </g>
     )   
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    players: state.displayedPlayers.players
+    players: state.displayedPlayers.players,
+    margin: state.barChart.margin,
+    width: state.barChart.width,
+    height: state.barChart.height
   }
 }
 
