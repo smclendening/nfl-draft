@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { allTeams } from '../utils.js';
+import { allTeams, allPositions } from '../utils.js';
 
 
 const labelStyle = { width: '200px', float: 'left', margin: '0 20px 20px' };
 const spanStyle = { display: 'block', margin: '0 0 3px', font: 'Verdana', 'fontSize': '14px' };
 const inputStyle = { width: '200px', padding: '5px', height: '30px' };
 
-export default ({ props }) => {
-  console.log(allTeams);
-return (
+export default ({ props }) => (
   <div
     className="ui one column stackable center aligned page grid"
     style={{ marginTop: '5px' }}
@@ -43,6 +41,17 @@ return (
         ))}
       </select>
     </label>
+
+    <label style={labelStyle}>
+      <span style={spanStyle}>Position:</span>
+      <select
+        className="ui fluid search dropdown"
+        style={inputStyle}
+      >
+        {allPositions.map(position => (
+          <option className="item" value={position}>{position}</option>
+        ))}
+      </select>
+    </label>
   </div>
 )
-}

@@ -7,4 +7,5 @@ export const allTeams = ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Rave
 'San Diego Chargers', 'San Francisco 49ers', 'Seattle Seahaws', 'St. Louis Rams', 
 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Redskins'];
 
-export const allPositions = ['QB', '']
+export const allPositions = ['QB', 'RB', 'FB', 'WR', 'TE', 'OT', 'OG', 
+'C', 'DE', 'DT', 'ILB', 'OLB', 'CB', 'SS', 'FS', 'K' ,'P', 'LS'];
