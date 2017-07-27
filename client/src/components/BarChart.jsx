@@ -29,6 +29,7 @@ export class BarChart extends Component {
       .range([margin.left, width - margin.right])
 
     const yScale = scaleLinear()
+      // TODO: make minValue and maxValue dynamic based on currently selected field
       .domain([minValues.forty_yd, maxValues.forty_yd])
       .range([height - margin.bottom, margin.top]) 
 
