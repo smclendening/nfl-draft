@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 // import actions here
 import { SELECT_TEAM, REQUEST_PLAYERS, RECEIVE_PLAYERS, SET_CONTAINER_SIZE } from './actions.js';
 
-const currentTeam = (state = {team: 'Green Bay Packers', position: 'WR', year: ''}, action) => {
+const currentTeam = (state = {team: 'Arizona Cardinals', position: 'QB', year: ''}, action) => {
   switch (action.type) {
     case SELECT_TEAM:
       return {
