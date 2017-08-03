@@ -10,6 +10,7 @@ export class ChartHome extends Component {
 
   componentDidMount() {
     const { getPlayers, team, position, setContainerSize } = this.props;
+    console.log('in mount of chart home');
     getPlayers(team, position);
 
     const margin = { top: 20, right: 20, bottom: 30, left: 70 };
@@ -19,8 +20,18 @@ export class ChartHome extends Component {
     setContainerSize(margin, width, height);
   }
 
+  componentWillReceiveProps(nextProps) {
+    // TODO: check if there is a more efficent way here
+    const { getPlayers, team, position, workout } = this.props;
+
+    if (nextProps.team !== team) {
+      getPlayers(nextProps.team, nextProps.position, workout);
+    }
+  }
+
   render() {
     const { players, margin } = this.props;
+    console.log('rerendering');
 
     const barChartContainer = (
       <BarChartContainer players={players} />
