@@ -2,7 +2,7 @@ const request = require('request');
 const cheerio = require('cheerio');
 const rp = require('request-promise');
 
-const urls = ['http://www.pro-football-reference.com/draft/2012-combine.htm', 'http://www.pro-football-reference.com/draft/2013-combine.htm', 'http://www.pro-football-reference.com/draft/2014-combine.htm', 'http://www.pro-football-reference.com/draft/2015-combine.htm', 'http://www.pro-football-reference.com/draft/2016-combine.htm'];
+const urls = ['http://www.pro-football-reference.com/draft/2006-combine.htm', 'http://www.pro-football-reference.com/draft/2007-combine.htm', 'http://www.pro-football-reference.com/draft/2008-combine.htm', 'http://www.pro-football-reference.com/draft/2009-combine.htm', 'http://www.pro-football-reference.com/draft/2010-combine.htm', 'http://www.pro-football-reference.com/draft/2011-combine.htm', 'http://www.pro-football-reference.com/draft/2012-combine.htm', 'http://www.pro-football-reference.com/draft/2013-combine.htm', 'http://www.pro-football-reference.com/draft/2014-combine.htm', 'http://www.pro-football-reference.com/draft/2015-combine.htm', 'http://www.pro-football-reference.com/draft/2016-combine.htm'];
 
 
 const findPlayers = () => {
