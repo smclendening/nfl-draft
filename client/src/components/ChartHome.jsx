@@ -9,8 +9,8 @@ export class ChartHome extends Component {
   }
 
   componentDidMount() {
-    const { getPlayers, currentTeam, setContainerSize } = this.props;
-    getPlayers(currentTeam.team, currentTeam.position);
+    const { getPlayers, team, position, setContainerSize } = this.props;
+    getPlayers(team, position);
 
     const margin = { top: 20, right: 20, bottom: 30, left: 70 };
     const width = this.refs.container.offsetWidth - 70 - margin.top - margin.bottom;
@@ -42,8 +42,10 @@ export class ChartHome extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentTeam: state.currentTeam,
-    players: state.displayedPlayers.players,
+    team: state.displayedPlayers.team,
+    position: state.displayedPlayers.position,
+    workout: state.displayedPlayers.workout,
+    players: state.allPlayers.players,
     margin: state.barChart.margin
   }
 }

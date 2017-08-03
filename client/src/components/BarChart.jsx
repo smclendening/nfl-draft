@@ -56,7 +56,7 @@ export class BarChart extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    players: state.displayedPlayers.players,
+    players: state.allPlayers.players,
     margin: state.barChart.margin,
     width: state.barChart.width,
     height: state.barChart.height

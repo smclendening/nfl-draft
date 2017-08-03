@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { changeDisplayedPlayers } from '../actions.js';
 import { allTeams, allPositions } from '../utils.js';
 
 
@@ -7,7 +8,7 @@ const labelStyle = { width: '200px', float: 'left', margin: '0 5px 20px' };
 const spanStyle = { display: 'block', margin: '0 0 3px', font: 'Verdana', 'fontSize': '14px' };
 const inputStyle = { width: '160px', padding: '2px', height: '30px' };
 
-export default class ChartOptions extends Component {
+export class ChartOptions extends Component {
 
   constructor() {
     super();
@@ -19,7 +20,10 @@ export default class ChartOptions extends Component {
   }
 
   render() {
-    console.log(this.state.workout)
+
+    const { team, position, workout } = this.state;
+    const { changeDisplayedPlayers } = this.props;
+
     return (
       <div
         className="ui one column stackable center aligned page grid"
@@ -73,7 +77,7 @@ export default class ChartOptions extends Component {
           <button 
             className="ui black button"
             onClick={() => {
-              console.log(this.state.team + this.state.position)
+              changeDisplayedPlayers(team, position, workout)
             }}>
             Get Player Data
           </button>
@@ -83,3 +87,15 @@ export default class ChartOptions extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {};
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeDisplayedPlayers: (team, position, workout) => dispatch(changeDisplayedPlayers(team, position, workout))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChartOptions)

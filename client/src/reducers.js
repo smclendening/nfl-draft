@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
 // import actions here
-import { SELECT_TEAM, REQUEST_PLAYERS, RECEIVE_PLAYERS, SET_CONTAINER_SIZE } from './actions.js';
+import { CHANGE_DISPLAYED_PLAYERS, SELECT_TEAM, REQUEST_PLAYERS, RECEIVE_PLAYERS, SET_CONTAINER_SIZE } from './actions.js';
 
-const currentTeam = (state = {team: 'Arizona Cardinals', position: 'QB', year: ''}, action) => {
+const displayedPlayers = (state = {team: 'Arizona Cardinals', position: 'QB', workout: ''}, action) => {
   switch (action.type) {
-    case SELECT_TEAM:
+    case CHANGE_DISPLAYED_PLAYERS:
       return {
         ...state,
-        team: action.team
+        team: action.team,
+        position: action.position,
+        workout: action.workout
       };
     default:
       return state;
@@ -32,21 +34,6 @@ const allPlayers = (state = {players: null, isFetching: false}, action) => {
   }
 }
 
-const displayedPlayers = (state = {
-  players: null,
-  position: 'WR'
-}, action) => {
-  switch (action.type) {
-    case RECEIVE_PLAYERS:
-      return {
-        ...state,
-        players: action.players // TODO: filter by current position here 
-      }
-    default:
-      return state;
-  }
-}
-
 const barChart = (state = {margin: null, width: 800, height: 500}, action) => {
   switch (action.type) {
     case SET_CONTAINER_SIZE: 
@@ -63,7 +50,6 @@ const barChart = (state = {margin: null, width: 800, height: 500}, action) => {
 
 const rootReducer = combineReducers({
   // add reducers here
-  currentTeam,
   allPlayers,
   displayedPlayers,
   barChart

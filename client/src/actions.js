@@ -3,6 +3,7 @@ import axios from 'axios';
 export const REQUEST_PLAYERS = 'REQUEST_PLAYERS';
 export const RECEIVE_PLAYERS = 'RECEIVE_PLAYERS';
 export const SET_CONTAINER_SIZE = 'SET_CONTAINER_SIZE';
+export const CHANGE_DISPLAYED_PLAYERS = 'CHANGE_DISPLAYED_PLAYERS';
 
 const requestPlayers = (team, position) => (
   {
@@ -16,6 +17,15 @@ const receivePlayers = (players) => (
   {
     type: RECEIVE_PLAYERS,
     players
+  }
+)
+
+export const changeDisplayedPlayers = (team, position, workout) => (
+  {
+    type: CHANGE_DISPLAYED_PLAYERS,
+    team,
+    position,
+    workout
   }
 )
 
@@ -33,8 +43,6 @@ export const fetchPlayers = (team, position) => {
 }
 
 export const setContainerSize = (margin, width, height) => {
-  console.log('margin in action', margin)
-
   return {
       type: SET_CONTAINER_SIZE,
       margin,
