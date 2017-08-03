@@ -24,7 +24,7 @@ export class ChartHome extends Component {
     // TODO: check if there is a more efficent way here
     const { getPlayers, team, position } = this.props;
 
-    if (nextProps.team !== team) {
+    if (nextProps.team !== team || nextProps.position !== position) {
       getPlayers(nextProps.team, nextProps.position);
     }
   }
