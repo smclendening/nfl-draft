@@ -51,7 +51,7 @@ export default class ChartOptions extends Component {
             onChange={(e) => this.setState({team: e.target.value})}
           >
             {allTeams.map(team => (
-              <option className="item" value={team}>{team}</option>
+              <option className="item" key={team} value={team}>{team}</option>
             ))}
           </select>
         </label>
@@ -61,16 +61,22 @@ export default class ChartOptions extends Component {
           <select
             className="ui fluid search dropdown"
             style={inputStyle}
-            onChange={(e) => this.setState({team: e.target.value})}
+            onChange={(e) => this.setState({position: e.target.value})}
           >
             {allPositions.map(position => (
-              <option className="item" value={position}>{position}</option>
+              <option className="item" key={position} value={position}>{position}</option>
             ))}
           </select>
         </label>
 
         <label style={labelStyle}>
-          <button className="ui black button">Get Player Data</button>
+          <button 
+            className="ui black button"
+            onClick={() => {
+              console.log(this.state.team + this.state.position)
+            }}>
+            Get Player Data
+          </button>
         </label>
 
       </div>
