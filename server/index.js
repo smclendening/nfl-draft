@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/players', (req, res) => {
+  console.log('req', req.query)
   db.getPlayers(req.query.team, req.query.position)
   .then(players => {
     res.end(JSON.stringify(players));

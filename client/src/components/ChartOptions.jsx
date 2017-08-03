@@ -77,7 +77,7 @@ export class ChartOptions extends Component {
           <button 
             className="ui black button"
             onClick={() => {
-              changeDisplayedPlayers(team, position, workout)
+              changeDisplayedPlayers(team, position)
             }}>
             Get Player Data
           </button>
@@ -94,7 +94,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeDisplayedPlayers: (team, position, workout) => dispatch(changeDisplayedPlayers(team, position, workout))
+    changeDisplayedPlayers: (team, position) => dispatch(changeDisplayedPlayers(team, position))
   }
 }
 

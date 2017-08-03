@@ -2,14 +2,13 @@ import { combineReducers } from 'redux';
 // import actions here
 import { CHANGE_DISPLAYED_PLAYERS, SELECT_TEAM, REQUEST_PLAYERS, RECEIVE_PLAYERS, SET_CONTAINER_SIZE } from './actions.js';
 
-const displayedPlayers = (state = {team: 'Arizona Cardinals', position: 'QB', workout: ''}, action) => {
+const displayedPlayers = (state = {team: 'Arizona Cardinals', position: 'QB'}, action) => {
   switch (action.type) {
     case CHANGE_DISPLAYED_PLAYERS:
       return {
         ...state,
         team: action.team,
-        position: action.position,
-        workout: action.workout
+        position: action.position
       };
     default:
       return state;

@@ -20,12 +20,11 @@ const receivePlayers = (players) => (
   }
 )
 
-export const changeDisplayedPlayers = (team, position, workout) => (
+export const changeDisplayedPlayers = (team, position) => (
   {
     type: CHANGE_DISPLAYED_PLAYERS,
     team,
-    position,
-    workout
+    position
   }
 )
 

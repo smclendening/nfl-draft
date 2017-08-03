@@ -9,9 +9,9 @@ export class ChartHome extends Component {
   }
 
   componentDidMount() {
-    const { getPlayers, team, position, setContainerSize } = this.props;
+    const { getPlayers, team, position, workout, setContainerSize } = this.props;
     console.log('in mount of chart home');
-    getPlayers(team, position);
+    getPlayers(team, position, workout);
 
     const margin = { top: 20, right: 20, bottom: 30, left: 70 };
     const width = this.refs.container.offsetWidth - 70 - margin.top - margin.bottom;
@@ -22,10 +22,10 @@ export class ChartHome extends Component {
 
   componentWillReceiveProps(nextProps) {
     // TODO: check if there is a more efficent way here
-    const { getPlayers, team, position, workout } = this.props;
+    const { getPlayers, team, position } = this.props;
 
     if (nextProps.team !== team) {
-      getPlayers(nextProps.team, nextProps.position, workout);
+      getPlayers(nextProps.team, nextProps.position);
     }
   }
 
