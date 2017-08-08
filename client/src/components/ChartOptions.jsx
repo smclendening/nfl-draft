@@ -54,17 +54,16 @@ export class ChartOptions extends Component {
           </select>
         </label>
 
-        <label style={labelStyle}>
-          <span style={spanStyle}> 
+        <div style={ {'margin-top': '15px'}}>
           <button 
+            style={ {'background-color': '#820606'}}
             className="ui black button"
             onClick={() => {
               changeDisplayedPlayers(team, position)
             }}>
             Get Player Data
           </button>
-          </span>
-        </label>
+        </div>
 
 
       </div>
