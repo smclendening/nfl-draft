@@ -7,6 +7,7 @@ import { allTeams, allPositions } from '../utils.js';
 const labelStyle = { width: '200px', float: 'left', margin: '0 5px 20px' };
 const spanStyle = { display: 'block', margin: '0 0 3px', font: 'Verdana', 'fontSize': '14px' };
 const inputStyle = { width: '160px', padding: '2px', height: '30px' };
+const buttonStyle = { 'margin-top': '15px' };
 
 export class ChartOptions extends Component {
 
@@ -54,7 +55,7 @@ export class ChartOptions extends Component {
           </select>
         </label>
 
-        <div style={ {'margin-top': '15px'}}>
+        <div style={buttonStyle}>
           <button 
             style={ {'background-color': '#820606'}}
             className="ui black button"
@@ -64,8 +65,6 @@ export class ChartOptions extends Component {
             Get Player Data
           </button>
         </div>
-
-
       </div>
     )
   }
