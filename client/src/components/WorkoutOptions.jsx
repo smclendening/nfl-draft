@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { allWorkouts } from '../utils.js';
+import { changeWorkout } from '../actions.js';
 
 class WorkoutOptions extends Component {
   constructor(props) {
@@ -8,12 +9,16 @@ class WorkoutOptions extends Component {
   }
 
   render() {
-    const { currentWorkout } = this.props;
+    const { currentWorkout, changeWorkout } = this.props;
 
     return (
       <div className="ui seven item menu">
         {Object.keys(allWorkouts).map(workout => (
-          <a className={workout === currentWorkout ? "active item" : "item"}>
+          <a 
+            className={workout === currentWorkout ? "active item" : "item"}
+            onClick={() => changeWorkout(workout)}
+            key={workout.name}
+          >
             {allWorkouts[workout].name}
           </a>)
         )}
@@ -29,7 +34,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    changeWorkout: workout => dispatch(changeWorkout(workout))
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WorkoutOptions);
