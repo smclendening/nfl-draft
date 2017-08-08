@@ -31,7 +31,6 @@ export class ChartHome extends Component {
 
   render() {
     const { players, margin } = this.props;
-    console.log('rerendering');
 
     const barChartContainer = (
       <BarChartContainer players={players} />

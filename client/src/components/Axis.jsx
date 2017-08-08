@@ -22,6 +22,7 @@ export default class Axis extends Component {
       .tickPadding([12])
       .ticks(5)
 
+    // TODO: remove ticks from x-axis
     d3Select(`.Axis-${orient}`).call(axis)
   }
 
