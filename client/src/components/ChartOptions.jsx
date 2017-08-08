@@ -7,7 +7,8 @@ import { allTeams, allPositions } from '../utils.js';
 const labelStyle = { width: '200px', float: 'left', margin: '0 5px 20px' };
 const spanStyle = { display: 'block', margin: '0 0 3px', font: 'Verdana', 'fontSize': '14px' };
 const inputStyle = { width: '160px', padding: '2px', height: '30px' };
-const buttonStyle = { 'margin-top': '15px' };
+const buttonDivStyle = { 'marginTop': '15px' };
+const buttonStyle = {'backgroundColor': '#820606', color: 'white'};
 
 export class ChartOptions extends Component {
 
@@ -55,10 +56,10 @@ export class ChartOptions extends Component {
           </select>
         </label>
 
-        <div style={buttonStyle}>
+        <div style={buttonDivStyle}>
           <button 
-            style={ {'background-color': '#820606'}}
-            className="ui black button"
+            style={buttonStyle}
+            className="ui button"
             onClick={() => {
               changeDisplayedPlayers(team, position)
             }}>
