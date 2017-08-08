@@ -13,7 +13,6 @@ export class ChartOptions extends Component {
   constructor() {
     super();
     this.state = {
-      workout: 'forty_yd',
       team: 'Arizona Cardinals',
       position: 'QB'
     }
@@ -21,7 +20,7 @@ export class ChartOptions extends Component {
 
   render() {
 
-    const { team, position, workout } = this.state;
+    const { team, position } = this.state;
     const { changeDisplayedPlayers } = this.props;
 
     return (
@@ -29,24 +28,6 @@ export class ChartOptions extends Component {
         className="ui one column stackable center aligned page grid"
         style={{ marginTop: '5px' }}
       >
-        <label style={labelStyle}>
-          <span style={spanStyle}>Workout/Attribute:</span>
-          <select
-            className="ui fluid search dropdown"
-            style={inputStyle}
-            onChange={(e) => this.setState({workout: e.target.value})}
-          >
-            <option className="item" value="forty_yd">40-Yard Dash</option>
-            <option className="item" value="vertical">Vertical Jump</option>
-            <option className="item" value="bench_reps">Bench Press</option>
-            <option className="item" value="cone">Three-Cone</option>
-            <option className="item" value="shuttle">Shuttle Run</option>
-            <option className="item" value="vertical">Vertical</option>
-            <option className="item" value="height">Height</option>
-            <option className="item" value="weight">Weight</option>
-          </select>
-        </label>
-
         <label style={labelStyle}>
           <span style={spanStyle}>Team:</span>
           <select
@@ -74,6 +55,7 @@ export class ChartOptions extends Component {
         </label>
 
         <label style={labelStyle}>
+          <span style={spanStyle}> 
           <button 
             className="ui black button"
             onClick={() => {
@@ -81,7 +63,9 @@ export class ChartOptions extends Component {
             }}>
             Get Player Data
           </button>
+          </span>
         </label>
+
 
       </div>
     )
