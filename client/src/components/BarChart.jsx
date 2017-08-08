@@ -3,17 +3,18 @@ import { connect } from 'react-redux';
 import { scaleBand, scaleLinear } from 'd3-scale';
 import Axes from './Axes.jsx';
 import Bars from './Bars.jsx';
+import { allWorkouts } from '../utils.js';
 
 //const margin = { top: 50, right: 20, bottom: 100, left: 60 };
 const devDimensions = { width: 800, height: 500 };
 
-const minValues = {
-  'forty_yd': 5.2
-}
+// const minValues = {
+//   'forty_yd': 5.2
+// };
 
-const maxValues = {
-  'forty_yd': 4.2
-}
+// const maxValues = {
+//   'forty_yd': 4.2
+// };
 
 export class BarChart extends Component {
   constructor(props) {
@@ -21,7 +22,10 @@ export class BarChart extends Component {
   }
 
   render() {
-    const { players, margin, width, height } = this.props;
+    const { players, margin, width, height, currentWorkout } = this.props;
+
+    const minValue = allWorkouts[currentWorkout].minValue;
+    const maxValue = allWorkouts[currentWorkout].maxValue
 
     const xScale = scaleBand()
       .padding(0.5)
@@ -30,7 +34,7 @@ export class BarChart extends Component {
 
     const yScale = scaleLinear()
       // TODO: make minValue and maxValue dynamic based on currently selected field
-      .domain([minValues.forty_yd, maxValues.forty_yd])
+      .domain([minValue, maxValue])
       .range([height - margin.bottom, margin.top]) 
 
     return (
@@ -46,7 +50,7 @@ export class BarChart extends Component {
           scales={{ xScale, yScale }}
           margins={margin}
           players={players}
-          maxValue={maxValues.forty_yd}
+          maxValue={maxValue}
           svgDimensions={{ width, height }}
         />
       </g>
@@ -57,6 +61,7 @@ export class BarChart extends Component {
 const mapStateToProps = (state) => {
   return {
     players: state.allPlayers.players,
+    currentWorkout: state.displayedPlayers.workout,
     margin: state.barChart.margin,
     width: state.barChart.width,
     height: state.barChart.height
