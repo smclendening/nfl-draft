@@ -14,7 +14,7 @@ export class BarChartContainer extends Component {
     return (
       <div>
         <ChartOptions />
-        <svg width={width} height={height + 100} className="barChart">
+        <svg width={width} height={height + 130} className="barChart">
           <BarChart/>
         </svg>
       </div>

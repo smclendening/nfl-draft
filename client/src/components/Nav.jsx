@@ -9,15 +9,13 @@ const navStyle = {
 
 const spanStyle = {
   color: 'white',
-  textAlign: 'center',
-  verticalAlign: 'middle'
 }
 
 const Nav = () => (
   <div id="navbar" className="ui fixed menu" style={navStyle}>
-    <p style={spanStyle}>
-      NFL Draft Data
-    </p>
+    <a className="item" /*style={spanStyle}*/>
+      <span style={spanStyle}>NFL Draft Data</span>
+    </a>
   </div>
 )
 
