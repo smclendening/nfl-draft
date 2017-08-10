@@ -4,6 +4,7 @@ export const REQUEST_PLAYERS = 'REQUEST_PLAYERS';
 export const RECEIVE_PLAYERS = 'RECEIVE_PLAYERS';
 export const SET_CONTAINER_SIZE = 'SET_CONTAINER_SIZE';
 export const CHANGE_DISPLAYED_PLAYERS = 'CHANGE_DISPLAYED_PLAYERS';
+export const CHANGE_WORKOUT = 'CHANGE_WORKOUT';
 
 const requestPlayers = (team, position) => (
   {
@@ -25,6 +26,13 @@ export const changeDisplayedPlayers = (team, position) => (
     type: CHANGE_DISPLAYED_PLAYERS,
     team,
     position
+  }
+)
+
+export const changeWorkout = workout => (
+  {
+    type: CHANGE_WORKOUT,
+    workout
   }
 )
 

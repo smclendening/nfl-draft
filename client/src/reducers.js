@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 // import actions here
-import { CHANGE_DISPLAYED_PLAYERS, SELECT_TEAM, REQUEST_PLAYERS, RECEIVE_PLAYERS, SET_CONTAINER_SIZE } from './actions.js';
+import { CHANGE_WORKOUT, CHANGE_DISPLAYED_PLAYERS, SELECT_TEAM, REQUEST_PLAYERS, RECEIVE_PLAYERS, SET_CONTAINER_SIZE } from './actions.js';
 
-const displayedPlayers = (state = {team: 'Arizona Cardinals', position: 'QB'}, action) => {
+const displayedPlayers = (state = {team: 'Arizona Cardinals', position: 'QB', workout: 'forty_yd'}, action) => {
   switch (action.type) {
     case CHANGE_DISPLAYED_PLAYERS:
       return {
@@ -10,6 +10,11 @@ const displayedPlayers = (state = {team: 'Arizona Cardinals', position: 'QB'}, a
         team: action.team,
         position: action.position
       };
+    case CHANGE_WORKOUT:
+      return {
+        ...state,
+        workout: action.workout
+      }
     default:
       return state;
   }

@@ -5,16 +5,7 @@ import Axes from './Axes.jsx';
 import Bars from './Bars.jsx';
 import { allWorkouts } from '../utils.js';
 
-//const margin = { top: 50, right: 20, bottom: 100, left: 60 };
 const devDimensions = { width: 800, height: 500 };
-
-// const minValues = {
-//   'forty_yd': 5.2
-// };
-
-// const maxValues = {
-//   'forty_yd': 4.2
-// };
 
 export class BarChart extends Component {
   constructor(props) {

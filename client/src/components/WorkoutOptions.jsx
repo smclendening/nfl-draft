@@ -16,8 +16,8 @@ class WorkoutOptions extends Component {
         {Object.keys(allWorkouts).map(workout => (
           <a 
             className={workout === currentWorkout ? "active item" : "item"}
+            key={workout}
             onClick={() => changeWorkout(workout)}
-            key={workout.name}
           >
             {allWorkouts[workout].name}
           </a>)
