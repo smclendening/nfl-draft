@@ -3,6 +3,13 @@
   stroke: #E0E0E0;
 }
 
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 22px;
+}
+
 .Axis-Bottom text, .Axis-Left text {
   font-size: 11px;
   fill: black;

@@ -13,8 +13,8 @@ const spanStyle = {
 
 const Nav = () => (
   <div id="navbar" className="ui fixed menu" style={navStyle}>
-    <a className="item" /*style={spanStyle}*/>
-      <span style={spanStyle}>NFL Draft Data</span>
+    <a className="item">
+      <span className="logo">NFL Draft Data</span>
     </a>
   </div>
 )
