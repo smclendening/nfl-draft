@@ -12,14 +12,14 @@ class Bars extends Component {
     const { scales, margins, players, svgDimensions, workout } = this.props;
     const { xScale, yScale } = scales;
     const { height } = svgDimensions;
-
+    
     const bars = (
       players.map(player => 
         <rect  
           key={player.id}
           x={xScale(`${player.name} (${player.year} - Rd ${player.round})`)}
           y={yScale(player[workout])}
-          height={height - margins.bottom - scales.yScale(player[workout])}
+          height={player[workout] !== '0.00' ? height - margins.bottom - scales.yScale(player[workout]) : 0}
           width={xScale.bandwidth()}
           fill={'#820606'}
         />
