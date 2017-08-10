@@ -3,16 +3,13 @@
   stroke: #E0E0E0;
 }
 
-.Axis text {
+.Axis-Bottom text, .Axis-Left text {
   font-size: 11px;
   fill: black;
+  font-weight: bold;
 }
 
 .Axis-Bottom text {
   transform: rotate(-45deg);
   text-anchor: end;
-}
-
-.hmm {
-  background-color: 'purple';
 }

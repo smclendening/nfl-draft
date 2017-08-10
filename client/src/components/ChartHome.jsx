@@ -10,7 +10,6 @@ export class ChartHome extends Component {
 
   componentDidMount() {
     const { getPlayers, team, position, workout, setContainerSize } = this.props;
-    console.log('in mount of chart home');
     getPlayers(team, position, workout);
 
     const margin = { top: 20, right: 20, bottom: 30, left: 70 };
