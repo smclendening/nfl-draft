@@ -12,7 +12,7 @@ export class BarChartContainer extends Component {
     const { width, height } = this.props;
 
     return (
-      <div>
+      <div className="hmm">
         <ChartOptions />
         <svg width={width} height={height} className="barChart">
           <BarChart/>

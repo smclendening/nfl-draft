@@ -12,7 +12,7 @@ class Bars extends Component {
     const { scales, margins, players, svgDimensions, workout } = this.props;
     const { xScale, yScale } = scales;
     const { height } = svgDimensions;
-    
+
     const bars = (
       players.map(player => 
         <rect  

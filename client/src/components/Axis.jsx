@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import * as d3Axis from 'd3-axis';
 import { select as d3Select } from 'd3-selection';
 
+import './Axis.css';
+
 export default class Axis extends Component { 
 
   componentDidMount() {
@@ -23,7 +25,7 @@ export default class Axis extends Component {
       .ticks(5)
 
     // TODO: remove ticks from x-axis
-    d3Select(`.Axis-${orient}`).call(axis)
+    d3Select(this.axisElement).call(axis)
   }
 
   render() {
@@ -32,6 +34,7 @@ export default class Axis extends Component {
     return (
       <g
         className={`Axis-${orient}`}
+        ref={(el) => { this.axisElement = el; }}
         transform={ translate } 
       />
     )
