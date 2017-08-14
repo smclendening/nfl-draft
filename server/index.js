@@ -6,7 +6,9 @@ const app = express();
 
 const db = require('../db/queries.js');
 const utils = require('./utils.js');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+
+const port = process.env.PORT || 8080;
 
 app.use(express.static(path.resolve(__dirname + '/../client/public')));
 
@@ -24,6 +26,6 @@ app.get('/players', (req, res) => {
   })
 })
 
-app.listen(8080, () => {
+app.listen(port, () => {
   console.log('dir', __dirname);
 });
