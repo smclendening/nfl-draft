@@ -9,7 +9,8 @@ const utils = require('./utils.js');
 const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 8080;
-console.log('process env', process.env.NODE_ENV);
+console.log('process env node', process.env.NODE_ENV);
+console.log('process env db name', process.env.DB_NAME);
 
 app.use(express.static(path.resolve(__dirname + '/../client/public')));
 
