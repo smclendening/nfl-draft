@@ -1,8 +1,10 @@
 const knex = require('./knexfile.js');
 
+const env = process.env.NODE_ENV || 'development';
+
 const db = require('knex')({
   client: 'pg',
-  connection: knex.development.connection,
+  connection: knex[env].connection,
   pool: {
     afterCreate: (conn, done) => {
       console.log('hmm are we in here');

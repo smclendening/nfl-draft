@@ -12,21 +12,21 @@ module.exports = {
       directory: __dirname + '/seeds/development'
     }
   },
-
-  staging: {
-    client: 'postgresql',
+  aws_env: {
+    client: 'pg',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      user: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: __dirname + '/migrations'
+    },
+    seeds: {
+      directory: __dirname + '/seeds/development'
+    },
   },
 
   production: {
