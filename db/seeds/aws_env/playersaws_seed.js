@@ -1,3 +1,4 @@
+
 const request = require('request');
 const cheerio = require('cheerio');
 const rp = require('request-promise');
@@ -101,5 +102,3 @@ exports.seed = (knex, Promise) => {
       })
     })
 }
-
-

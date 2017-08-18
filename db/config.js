@@ -1,10 +1,11 @@
 const knex = require('./knexfile.js');
 
 const env = process.env.NODE_ENV || 'development';
-console.log('db in config', env);
-console.log('knex in config', knex);
-console.log('knev env', knex[env]);
-console.log('knex env try 2', knex.aws_env);
+
+console.log('username', process.env.RDS_USERNAME);
+console.log('password:', process.env.RDS_PASSWORD);
+console.log('database:', process.env.RDS_DB_NAME);
+
 const db = require('knex')({
   client: 'pg',
   connection: knex.aws_env.connection,
