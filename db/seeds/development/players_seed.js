@@ -16,7 +16,7 @@ const findPlayers = () => {
           return cheerio.load(body);
       }
     };
-
+    
     const year = url.split('draft/')[1].slice(0, 4);
     
     return rp(options)
@@ -86,7 +86,6 @@ const createPlayerRecord = (knex, player) => {
 }
 
 exports.seed = (knex, Promise) => {
-  console.log('WE ARE IN THE SEED!!! CHECK PLEASE!');
   return knex('players').del()
     .then(() => {
       return findPlayers()

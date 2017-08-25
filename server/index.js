@@ -9,8 +9,6 @@ const utils = require('./utils.js');
 const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 8080;
-console.log('process env node', process.env.NODE_ENV);
-console.log('process env db name', process.env.DB_NAME);
 
 app.use(express.static(path.resolve(__dirname + '/../client/public')));
 
@@ -18,7 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/players', (req, res) => {
-  console.log('req', req.query)
   db.getPlayers(req.query.team, req.query.position)
   .then(players => {
     res.end(JSON.stringify(players));

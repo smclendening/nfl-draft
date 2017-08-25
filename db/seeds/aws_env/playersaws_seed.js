@@ -87,7 +87,6 @@ const createPlayerRecord = (knex, player) => {
 }
 
 exports.seed = (knex, Promise) => {
-  console.log('WE ARE IN THE SEED!!! CHECK PLEASE!');
   return knex('players').del()
     .then(() => {
       return findPlayers()
