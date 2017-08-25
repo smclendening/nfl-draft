@@ -6,7 +6,7 @@ const connection = knex[env].connection;
 
 const db = require('knex')({
   client: 'pg',
-  connection, //knex.aws_env.connection,
+  connection, 
   pool: {
     afterCreate: (conn, done) => {
       console.log('hmm are we in here');
