@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './configureStore';
 import App from './components/App.jsx';
 
+import './styles.less';
+
 const store = configureStore();
 
 const Root = () => (

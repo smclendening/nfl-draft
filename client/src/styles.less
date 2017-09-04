@@ -1,13 +1,15 @@
-.Axis path,
-.Axis line {
-  stroke: #E0E0E0;
-}
+@font: 'Montserrat';
+@logo-color: #FFFFFF;
 
 .logo {
-  font-family: 'Montserrat', sans-serif;
-  color: #FFFFFF;
+  font-family: @font;
+  color: @logo-color;
   font-weight: bold;
   font-size: 22px;
+}
+
+.Axis path, .Axis line {
+  stroke: #E0E0E0;
 }
 
 .Axis-Bottom text, .Axis-Left text {
