@@ -20,7 +20,7 @@ export class BarChart extends Component {
 
     const xScale = scaleBand()
       .padding(0.5)
-      .domain(players.map(player => `${player.name} (${player.year} - Rd ${player.round})`))
+      .domain(players.map(player => `${player.name} (${player.year} - R${player.round})`))
       .range([margin.left, width - margin.right])
 
     const yScale = scaleLinear()

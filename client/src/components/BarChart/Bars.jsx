@@ -17,7 +17,7 @@ class Bars extends Component {
       players.map(player => 
         <rect  
           key={player.id}
-          x={xScale(`${player.name} (${player.year} - Rd ${player.round})`)}
+          x={xScale(`${player.name} (${player.year} - R${player.round})`)}
           y={yScale(player[workout])}
           height={player[workout] !== '0.00' ? height - margins.bottom - scales.yScale(player[workout]) : 0}
           width={xScale.bandwidth()}
