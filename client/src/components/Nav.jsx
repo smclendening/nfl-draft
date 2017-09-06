@@ -12,7 +12,7 @@ const spanStyle = {
 }
 
 const Nav = () => (
-  <div id="navbar" className="ui fixed menu" style={navStyle}>
+  <div id="navbar" className="NavBar" /*style={navStyle}*/>
     <a className="item">
       <span className="logo">NFL Draft Data</span>
     </a>
