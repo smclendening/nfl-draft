@@ -4,8 +4,6 @@ import { changeDisplayedPlayers } from '../actions.js';
 import { allTeams, allPositions } from '../utils.js';
 
 
-const labelStyle = { width: '200px', float: 'left', margin: '0 5px 20px' };
-const spanStyle = { display: 'block', margin: '0 0 3px', font: 'Verdana', 'fontSize': '14px' };
 const inputStyle = { width: '160px', padding: '2px', height: '30px' };
 const buttonDivStyle = { 'marginTop': '15px' };
 const buttonStyle = {'backgroundColor': '#820606', color: 'white'};
@@ -31,7 +29,7 @@ export class ChartDropdown extends Component {
         style={{ marginTop: '5px' }}
       >
         <label className="chart-label">
-          <span style={spanStyle}>Team:</span>
+          <span className="span-label">Team:</span>
           <select
             className="ui fluid search dropdown"
             style={inputStyle}
@@ -44,7 +42,7 @@ export class ChartDropdown extends Component {
         </label>
 
         <label className="chart-label">
-          <span style={spanStyle}>Position:</span>
+          <span className="span-label">Position:</span>
           <select
             className="ui fluid search dropdown"
             style={inputStyle}
