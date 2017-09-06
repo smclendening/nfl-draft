@@ -30,7 +30,7 @@ export class ChartDropdown extends Component {
         className="ui one column stackable center aligned page grid"
         style={{ marginTop: '5px' }}
       >
-        <label style={labelStyle}>
+        <label className="chart-label">
           <span style={spanStyle}>Team:</span>
           <select
             className="ui fluid search dropdown"
@@ -43,7 +43,7 @@ export class ChartDropdown extends Component {
           </select>
         </label>
 
-        <label style={labelStyle}>
+        <label className="chart-label">
           <span style={spanStyle}>Position:</span>
           <select
             className="ui fluid search dropdown"
